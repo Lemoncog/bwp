@@ -38,16 +38,17 @@ angular.module( 'ngBoilerplate.progress', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'ProgressCtrl', function ProgressController( $scope ) {
-  $scope.progressTree = [ 
-    { 'title' : 'Negative Handstand',
-     'description' : 'Stand on hands, lower to head.' 
-    },
-    { 'title' : 'Handstand',
-     'description' : 'Stand on hands, lower to head, raise to straight.' 
-    }
-  ];
-})
+.controller( 'ProgressCtrl', function ProgressController( $scope, $http ) {
+  $http.get('assets/exercises.json').success(function(data) {
+    $scope.progressTree = data;
+    $scope.shownExercise = data[0];
+  });
 
-;
+ $scope.shownExercise = { title: "Loading..."};
+
+  $scope.onExerciseClicked = function(exercise) {
+    console.log("clicky clicky " + exercise);
+    $scope.shownExercise = exercise;
+  };
+});
 

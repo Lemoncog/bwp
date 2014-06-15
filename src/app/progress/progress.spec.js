@@ -10,13 +10,5 @@ describe( 'progress section', function() {
   it( 'should have a dummy test', inject( function() {
     expect( true ).toBeTruthy();
   }));
-
-
-  it( 'should have a backing array with data', inject( function($controller) {
-    var scope = {},
-    ctrl = $controller('ProgressCtrl', {$scope:scope});
-
-    expect( scope.progressTree.length ).toBeGreaterThan(0);
-  }));
 });
 

@@ -1,9 +1,14 @@
-<div class="progressListing">
-Going to make some!
-	<ul>
-		<li ng-repeat="progress in progressTree">
-			{{progress.title}}
-			<p>{{progress.description}}</p>
-		</li>
-	</ul>
+<div class="row">
+	<div class="col-md-6">
+		<ul class="exercises">
+			<div ng-repeat="progress in progressTree" class="exercises" ng-click="onExerciseClicked(progress)">
+				<h3>{{progress.title}}</h3>
+				<p>{{progress.description}}</p>
+			</div>
+		</ul>
+	</div>
+	<div class="col-md-6">
+		I am the right column showing details.
+		<h3>{{shownExercise.title}}<h3>
+	</div>
 </div>
